@@ -172,15 +172,12 @@
       content.forEach(function (element) {
         element.style.display = 'block';
       });
-      var isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-      if (!isMobile) {
-        var navbar = document.querySelector('.navbar-ul');
-        navbar.style.display = 'block';
-      }
+      var navbar = document.querySelector('.navbar-ul');
+      navbar.style.display = 'block';
 
       var backgroundMusic = document.getElementById('backgroundMusic');
-      backgroundMusic.volume = 0.5;
+      backgroundMusic.volume = 0.1;
       backgroundMusic.play();
 
       window.removeEventListener('keydown', playMusic);
@@ -215,13 +212,10 @@
       const navBarHeight = navBar.getBoundingClientRect().bottom;
 
       if (e.pageY < navBarHeight) {
-
         line.style.background = 'linear-gradient(45deg, #b0b0b0, #888888, #666666)';
       } else if (e.pageY < divisionHeight) {
-
         line.style.background = 'linear-gradient(45deg, #d9b89c, #d38a53, #926f5b)';
       } else {
-
         line.style.background = 'linear-gradient(45deg, #b0b0b0, #888888, #666666)';
       }
 
@@ -231,7 +225,7 @@
 
       setTimeout(() => {
         line.remove();
-      }, 400);
+      }, 1100); 
     });
   </script>
 
