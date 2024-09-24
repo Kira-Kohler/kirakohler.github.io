@@ -146,26 +146,32 @@
     function playMusic() {
       var loadingMessage = document.querySelector('.loading-message');
       loadingMessage.style.display = 'none';
-
+  
       var content = document.querySelectorAll('.content');
       content.forEach(function(element) {
         element.style.display = 'block';
       });
-
+  
       var navbar = document.querySelector('.navbar-ul');
       navbar.style.display = 'block';
-
+  
       var backgroundMusic = document.getElementById('backgroundMusic');
       backgroundMusic.volume = 0.5; 
       backgroundMusic.play();
       
       window.removeEventListener('keydown', playMusic);
+      window.removeEventListener('click', playMusic); 
+      window.removeEventListener('touchstart', playMusic); 
     }
-
+  
+    window.addEventListener('keydown', playMusic);
+    window.addEventListener('click', playMusic); 
+    window.addEventListener('touchstart', playMusic); 
+  
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
     });
-
+  
     document.addEventListener('keydown', function(e) {
       if (e.key === 'F12' || (e.key === 'Shift' && e.ctrlKey && e.key === 'I')) {
         e.preventDefault();
