@@ -4,51 +4,100 @@ html {
     margin: 0;
     padding: 0;
 }
-
 .navbar-ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    text-align: center; 
-    width: 100%; 
-    position: fixed; 
+    text-align: center;
+    width: 100%;
+    position: fixed;
     top: 0;
-    background-color: #111; 
-    z-index: 1000; 
+    background-color: #111;
+    z-index: 1000;
 }
 
 .navbar-ul li {
-    display: inline-block; 
+    display: inline-block;
     padding: 15px 20px;
 }
 
 .navbar-ul li a {
-    color: #fff;
+    color: rgb(255, 255, 255);
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.15em;
     display: inline-block;
     padding: 15px 20px;
-    position: relative; 
+    position: relative;
 }
 
 .navbar-ul li a::after {
     content: '';
     position: absolute;
-    left: 50%; 
+    left: 50%;
     bottom: 0;
-    transform: translateX(-50%); 
-    width: 0; 
+    transform: translateX(-50%);
+    width: 0;
     height: 2px;
-    background-color: #fff; 
+    background-color: #fff;
     transition: width 0.3s ease-in-out;
-    transform-origin: center;
 }
 
 .navbar-ul li a:hover::after {
     width: 100%;
 }
+.mobile-menu-icon {
+    display: none;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px;
+    text-align: center;
+    background-color: #111;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1001;
+}
+.mobile-menu {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #111;
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    z-index: 1000;
+}
 
+.mobile-menu li {
+    padding: 15px;
+}
+
+.mobile-menu li a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: block;
+    padding: 15px 20px;
+    background-color: #111;
+}
+
+.mobile-menu li a:hover {
+    background-color: #333;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar-ul {
+        display: none;
+    }
+    .mobile-menu-icon {
+        display: block;
+    }
+}
 .center {
     text-align: center;
 }
@@ -63,7 +112,7 @@ html {
     font-family: 'Platypi', sans-serif;
     padding: 20px;
     margin-top: 30px;
-    text-align: center; 
+    text-align: center;
 }
 
 .aboutme-container h2 {
@@ -71,14 +120,14 @@ html {
     font-size: 22px;
     margin-bottom: 15px;
     position: relative;
-    left: -140px; 
+    left: -140px;
 }
 
 .aboutme-container table {
-    width: 400px; 
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
-    text-align: left; 
+    text-align: left;
     border-spacing: 8px 15px;
     font-size: 15px;
 }
@@ -95,7 +144,6 @@ html {
 .aboutme-container td:nth-child(2) {
     width: 60%;
 }
-
 @media only screen and (max-width: 768px) {
     ul {
         width: 100%;

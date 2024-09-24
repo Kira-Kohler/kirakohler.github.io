@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,13 +17,15 @@
   <link rel="icon" type="image/x-icon" href="resources/K1R4FN.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
   <style>
     body {
       background: #111;
       color: #ccc;
       font-family: 'Platypi', sans-serif;
     }
+
     .loading-message {
       position: fixed;
       top: 50%;
@@ -34,23 +37,29 @@
       animation: pulse 1s infinite alternate;
       z-index: 9999;
     }
+
     @keyframes pulse {
       0% {
         opacity: 0.5;
       }
+
       100% {
         opacity: 1;
       }
     }
+
     .content {
       display: none;
     }
+
     .navbar-ul {
       display: none;
     }
+
     .prevent-inspect {
       display: none !important;
     }
+
     html {
       -webkit-touch-callout: none;
       -webkit-user-select: none;
@@ -59,24 +68,29 @@
       -ms-user-select: none;
       user-select: none;
     }
+
     body {
       overflow: hidden;
     }
+
     .aboutme-container {
       color: #fff;
       font-family: 'Platypi', sans-serif;
       padding: 20px;
       margin-top: 30px;
     }
+
     .aboutme-container h2 {
       color: #4ca3ff;
     }
+
     .aboutme-container table {
       color: #fff;
       font-size: 16px;
     }
   </style>
 </head>
+
 <body onkeydown="playMusic()">
   <div class="loading-message">Presiona una tecla para continuar...</div>
 
@@ -84,17 +98,28 @@
     <li><a href="https://www.tiktok.com/@kirakohler">Tiktok</a></li>
     <li><a href="https://github.com/Kira-Kohler/">Github</a></li>
     <li><a href="https://discord.com/users/839217437383983184">Discord</a></li>
-    <li><a href="https://overwatch.blizzard.com/en-us/career/cb519fdaaa5aca9fbdbd25a7d507%7Cab65f3cfa66d3b51123176867b5bc60b/">Overwatch Stats</a></li>
+    <li><a
+        href="https://overwatch.blizzard.com/en-us/career/cb519fdaaa5aca9fbdbd25a7d507%7Cab65f3cfa66d3b51123176867b5bc60b/">Overwatch
+        Stats</a></li>
+  </ul>
+
+  <div class="mobile-menu-icon" onclick="toggleMenu()">
+    ☰
+  </div>
+
+  <ul class="mobile-menu">
+    <li><a href="https://www.tiktok.com/@kirakohler">Tiktok</a></li>
+    <li><a href="https://github.com/Kira-Kohler/">Github</a></li>
+    <li><a href="https://discord.com/users/839217437383983184">Discord</a></li>
+    <li><a
+        href="https://overwatch.blizzard.com/en-us/career/cb519fdaaa5aca9fbdbd25a7d507%7Cab65f3cfa66d3b51123176867b5bc60b/">Overwatch
+        Stats</a></li>
   </ul>
 
   <section style="color: #ccc; font-family: 'Platypi', sans-serif;" class="content">
     <div class="main-container">
       <div class="environment"></div>
-      <h2
-        class="hero glitch layers"
-        data-text="Kira Kohler"
-        style="color: rgb(255, 255, 255);"
-      >
+      <h2 class="hero glitch layers" data-text="Kira Kohler" style="color: rgb(255, 255, 255);">
         <span>Kira Kohler</span>
       </h2>
       <p class="modder-text">Fortnite Modder</p>
@@ -104,12 +129,8 @@
   </section>
 
   <div class="center content">
-    <img
-      class="center"
-      style="max-width: 100%; height: auto"
-      src="https://discord.c99.nl/widget/theme-2/839217437383983184.png"
-      alt="Discord"
-    /><br />
+    <img class="center" style="max-width: 100%; height: auto"
+      src="https://discord.c99.nl/widget/theme-2/839217437383983184.png" alt="Discord" /><br />
     <div class="aboutme-container">
       <h2>About me:</h2>
       <table>
@@ -146,70 +167,85 @@
     function playMusic() {
       var loadingMessage = document.querySelector('.loading-message');
       loadingMessage.style.display = 'none';
-  
+
       var content = document.querySelectorAll('.content');
-      content.forEach(function(element) {
+      content.forEach(function (element) {
         element.style.display = 'block';
       });
-  
-      var navbar = document.querySelector('.navbar-ul');
-      navbar.style.display = 'block';
-  
+      var isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+      if (!isMobile) {
+        var navbar = document.querySelector('.navbar-ul');
+        navbar.style.display = 'block';
+      }
+
       var backgroundMusic = document.getElementById('backgroundMusic');
-      backgroundMusic.volume = 0.5; 
+      backgroundMusic.volume = 0.5;
       backgroundMusic.play();
-      
+
       window.removeEventListener('keydown', playMusic);
-      window.removeEventListener('click', playMusic); 
-      window.removeEventListener('touchstart', playMusic); 
+      window.removeEventListener('click', playMusic);
+      window.removeEventListener('touchstart', playMusic);
     }
-  
+
     window.addEventListener('keydown', playMusic);
-    window.addEventListener('click', playMusic); 
-    window.addEventListener('touchstart', playMusic); 
-  
-    document.addEventListener('contextmenu', function(e) {
+    window.addEventListener('click', playMusic);
+    window.addEventListener('touchstart', playMusic);
+
+    document.addEventListener('contextmenu', function (e) {
       e.preventDefault();
     });
-  
-    document.addEventListener('keydown', function(e) {
+
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'F12' || (e.key === 'Shift' && e.ctrlKey && e.key === 'I')) {
         e.preventDefault();
       }
     });
   </script>
-<script>
-    
-  const topSection = document.querySelector('.main-container'); 
-  const navBar = document.querySelector('.navbar-ul'); 
+  <script>
 
-  document.addEventListener('mousemove', function(e) {
-    const line = document.createElement('div');
-    line.classList.add('trail');
+    const topSection = document.querySelector('.main-container');
+    const navBar = document.querySelector('.navbar-ul');
 
-    const divisionHeight = topSection.getBoundingClientRect().bottom;
-    const navBarHeight = navBar.getBoundingClientRect().bottom; 
+    document.addEventListener('mousemove', function (e) {
+      const line = document.createElement('div');
+      line.classList.add('trail');
 
-    if (e.pageY < navBarHeight) {
+      const divisionHeight = topSection.getBoundingClientRect().bottom;
+      const navBarHeight = navBar.getBoundingClientRect().bottom;
 
-      line.style.background = 'linear-gradient(45deg, #b0b0b0, #888888, #666666)'; 
-    } else if (e.pageY < divisionHeight) {
+      if (e.pageY < navBarHeight) {
 
-      line.style.background = 'linear-gradient(45deg, #d9b89c, #d38a53, #926f5b)'; 
-    } else {
+        line.style.background = 'linear-gradient(45deg, #b0b0b0, #888888, #666666)';
+      } else if (e.pageY < divisionHeight) {
 
-      line.style.background = 'linear-gradient(45deg, #b0b0b0, #888888, #666666)'; 
+        line.style.background = 'linear-gradient(45deg, #d9b89c, #d38a53, #926f5b)';
+      } else {
+
+        line.style.background = 'linear-gradient(45deg, #b0b0b0, #888888, #666666)';
+      }
+
+      line.style.left = `${e.pageX - 10}px`;
+      line.style.top = `${e.pageY - 10}px`;
+      document.body.appendChild(line);
+
+      setTimeout(() => {
+        line.remove();
+      }, 400);
+    });
+  </script>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.querySelector('.mobile-menu');
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
     }
+  </script>
 
-    line.style.left = `${e.pageX - 10}px`;  
-    line.style.top = `${e.pageY - 10}px`;
-    document.body.appendChild(line);
-
-    setTimeout(() => {
-      line.remove();
-    }, 400);  
-  });
-</script>
-   
 </body>
+
 </html>
