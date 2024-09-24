@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kira Kohler Profile</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/texteffect.css" rel="stylesheet" />
+  <meta property="og:title" content="Kira Kohler Profile" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.servidoreskirafn.com" />
+  <meta property="og:description" content="Home" />
+  <meta name="theme-color" content="#111" />
+  <link rel="icon" type="image/x-icon" href="resources/K1R4FN.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #111;
+      color: #ccc;
+      font-family: 'Platypi', sans-serif;
+    }
+    .loading-message {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ccc;
+      text-align: center;
+      font-size: 24px;
+      animation: pulse 1s infinite alternate;
+      z-index: 9999;
+    }
+    @keyframes pulse {
+      0% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .content {
+      display: none;
+    }
+    .navbar-ul {
+      display: none;
+    }
+    .prevent-inspect {
+      display: none !important;
+    }
+    html {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    body {
+      overflow: hidden;
+    }
+    .aboutme-container {
+      color: #fff;
+      font-family: 'Platypi', sans-serif;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    .aboutme-container h2 {
+      color: #4ca3ff;
+    }
+    .aboutme-container table {
+      color: #fff;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body onkeydown="playMusic()">
+  <div class="loading-message">Presiona una tecla para continuar...</div>
+
+  <ul class="navbar-ul">
+    <li><a href="https://www.tiktok.com/@kirakohler">Tiktok</a></li>
+    <li><a href="https://github.com/Kira-Kohler/">Github</a></li>
+    <li><a href="https://discord.com/users/839217437383983184">Discord</a></li>
+    <li><a href="">Overwatch Stats</a></li>
+  </ul>
+
+  <section style="color: #ccc; font-family: 'Platypi', sans-serif;" class="content">
+    <div class="main-container">
+      <div class="environment"></div>
+      <h2
+        class="hero glitch layers"
+        data-text="Kira Kohler"
+        style="color: rgb(255, 255, 255);"
+      >
+        <span>Kira Kohler</span>
+      </h2>
+      <p class="modder-text">Fortnite Modder</p>
+      <p class="modder-text">Creator of K1R4FN</p>
+      <p style="text-align: center; color: #fff; font-size: 18px; margin-top: 10px;">22/02 💞</p>
+    </div>
+  </section>
+
+  <div class="center content">
+    <img
+      class="center"
+      style="max-width: 100%; height: auto"
+      src="https://discord.c99.nl/widget/theme-2/839217437383983184.png"
+      alt="Discord"
+    /><br />
+    <div class="aboutme-container">
+      <h2>About me:</h2>
+      <table>
+        <tr>
+          <td><strong>Name:</strong></td>
+          <td>Kira</td>
+        </tr>
+        <tr>
+          <td><strong>Last Name:</strong></td>
+          <td>Kohler</td>
+        </tr>
+        <tr>
+          <td><strong>Age:</strong></td>
+          <td>19</td>
+        </tr>
+        <tr>
+          <td><strong>I live in:</strong></td>
+          <td>Canary Islands</td>
+        </tr>
+        <tr>
+          <td><strong>I speak:</strong></td>
+          <td>Spanish, English and French</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <audio id="backgroundMusic" loop>
+    <source src="resources/DarkSide.mp3" type="audio/mpeg" />
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <script>
+    function playMusic() {
+      var loadingMessage = document.querySelector('.loading-message');
+      loadingMessage.style.display = 'none';
+
+      var content = document.querySelectorAll('.content');
+      content.forEach(function(element) {
+        element.style.display = 'block';
+      });
+
+      var navbar = document.querySelector('.navbar-ul');
+      navbar.style.display = 'block';
+
+      var backgroundMusic = document.getElementById('backgroundMusic');
+      backgroundMusic.volume = 0.5; 
+      backgroundMusic.play();
+      
+      window.removeEventListener('keydown', playMusic);
+    }
+
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F12' || (e.key === 'Shift' && e.ctrlKey && e.key === 'I')) {
+        e.preventDefault();
+      }
+    });
+  </script>
+<script>
+    
+  const topSection = document.querySelector('.main-container'); 
+  const navBar = document.querySelector('.navbar-ul'); 
+
+  document.addEventListener('mousemove', function(e) {
+    const line = document.createElement('div');
+    line.classList.add('trail');
+
+    const divisionHeight = topSection.getBoundingClientRect().bottom;
+    const navBarHeight = navBar.getBoundingClientRect().bottom; 
+
+    if (e.pageY < navBarHeight) {
+
+      line.style.background = 'linear-gradient(45deg, #b0b0b0, #888888, #666666)'; 
+    } else if (e.pageY < divisionHeight) {
+
+      line.style.background = 'linear-gradient(45deg, #d9b89c, #d38a53, #926f5b)'; 
+    } else {
+
+      line.style.background = 'linear-gradient(45deg, #b0b0b0, #888888, #666666)'; 
+    }
+
+    line.style.left = `${e.pageX - 10}px`;  
+    line.style.top = `${e.pageY - 10}px`;
+    document.body.appendChild(line);
+
+    setTimeout(() => {
+      line.remove();
+    }, 400);  
+  });
+</script>
+   
+</body>
+</html>

@@ -1,0 +1,147 @@
+body,
+html {
+    font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+}
+
+ul {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 55px;
+    margin-top: 30px;
+    padding: 0;
+    list-style: none;
+    display: table;
+    width: 600px;
+    text-align: center;
+}
+.navbar-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; 
+    width: 100%; 
+    position: fixed; 
+    top: 0;
+    background-color: #111; 
+    z-index: 1000; 
+  }
+  
+  .navbar-ul li {
+    display: inline-block; 
+    padding: 15px 20px;
+  }
+  
+  .navbar-ul li a {
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative; 
+  }
+  
+  .navbar-ul li a::after {
+    content: '';
+    position: absolute;
+    left: 50%; 
+    bottom: 0;
+    transform: translateX(-50%); 
+    width: 0; 
+    height: 2px;
+    background-color: #fff; 
+    transition: width 0.3s ease-in-out;
+    transform-origin: center;
+  }
+  
+  .navbar-ul li a:hover::after {
+    width: 100%;
+  }
+
+@media screen and (max-height: 300px) {
+    ul {
+        margin-top: 40px;
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+.center > div, .center > table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    height: 200px;
+    position: relative;
+    border: 3px solid green;
+  }
+  
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+
+.aboutme-container {
+    color: #fff;
+    font-family: 'Platypi', sans-serif;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: center; 
+  }
+  
+  .aboutme-container h2 {
+    color: #4ca3ff;
+    font-size: 22px;
+    margin-bottom: 15px;
+    position: relative;
+    left: -140px; 
+  }
+  
+  .aboutme-container table {
+    width: 400px; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left; 
+    border-spacing: 8px 15px;
+    font-size: 15px;
+  }
+  
+  .aboutme-container td {
+    padding: 5px;
+  }
+  
+  .aboutme-container td:first-child {
+    font-weight: bold;
+    width: 40%;
+  }
+  
+  .aboutme-container td:nth-child(2) {
+    width: 60%;
+  }
+  
+.trail {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #d9b89c, #d38a53, #926f5b);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 1;
+    filter: blur(3px);
+    animation: fade-out 0.4s forwards;
+    z-index: 1100;
+  }
+  
+  @keyframes fade-out {
+    to {
+      opacity: 0;
+      transform: scale(3);
+    }
+  }
