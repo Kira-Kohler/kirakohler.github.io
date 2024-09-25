@@ -495,10 +495,10 @@ section {
   opacity: 0.5;
   filter: blur(5px);
 
-  background: url("https://cdn.glitch.global/322999c1-0d16-4d32-ac1a-8f74e74c41c8/ashe.gif?v=1708742276558")
-    center no-repeat;
+  background: url("https://autumn.revolt.chat/attachments/download/PK72sDoMvVgeALOGAymaaCnaZjT_KTdQTzwnNLyWFL") center no-repeat;
   background-size: cover;
 }
+
 .modder-text {
   color: #4d4c4c; 
   font-size: 20px; 
