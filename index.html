@@ -94,7 +94,7 @@
 <body onkeydown="playMusic()">
   <div class="loading-message">Presiona una tecla para continuar...</div>
 
-  <ul class="navbar-ul">
+  <ul class="navbar-desktop">
     <li><a href="https://www.tiktok.com/@kirakohler">Tiktok</a></li>
     <li><a href="https://github.com/Kira-Kohler/">Github</a></li>
     <li><a href="https://discord.com/users/839217437383983184">Discord</a></li>
@@ -103,11 +103,9 @@
         Stats</a></li>
   </ul>
 
-  <div class="mobile-menu-icon" onclick="toggleMenu()">
-    ☰
-  </div>
+  <div class="mobile-menu-icon" onclick="toggleMobileMenu()">☰</div>
 
-  <ul class="mobile-menu">
+  <ul class="navbar-mobile">
     <li><a href="https://www.tiktok.com/@kirakohler">Tiktok</a></li>
     <li><a href="https://github.com/Kira-Kohler/">Github</a></li>
     <li><a href="https://discord.com/users/839217437383983184">Discord</a></li>
@@ -164,26 +162,41 @@
   </audio>
 
   <script>
-    function playMusic() {
-      var loadingMessage = document.querySelector('.loading-message');
-      loadingMessage.style.display = 'none';
+function playMusic() {
+    var loadingMessage = document.querySelector('.loading-message');
+    loadingMessage.style.display = 'none';
 
-      var content = document.querySelectorAll('.content');
-      content.forEach(function (element) {
+    var content = document.querySelectorAll('.content');
+    content.forEach(function (element) {
         element.style.display = 'block';
-      });
+    });
 
-      var navbar = document.querySelector('.navbar-ul');
-      navbar.style.display = 'block';
+    document.body.classList.add('show-navbar');
 
-      var backgroundMusic = document.getElementById('backgroundMusic');
-      backgroundMusic.volume = 0.1;
-      backgroundMusic.play();
+    var mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+    mobileMenuIcon.classList.remove('hidden');
 
-      window.removeEventListener('keydown', playMusic);
-      window.removeEventListener('click', playMusic);
-      window.removeEventListener('touchstart', playMusic);
+    var backgroundMusic = document.getElementById('backgroundMusic');
+    backgroundMusic.volume = 0.1;
+    backgroundMusic.play().catch(function (error) {
+        console.log("Error al reproducir el audio: " + error);
+    });
+
+    window.removeEventListener('touchstart', playMusic);
+    window.removeEventListener('keydown', playMusic);
+}
+
+    function updateLoadingMessage() {
+      var loadingMessage = document.querySelector('.loading-message');
+      if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        loadingMessage.textContent = 'Toca la pantalla para continuar...';
+      } else {
+        loadingMessage.textContent = 'Presiona una tecla para continuar...';
+      }
+      loadingMessage.style.display = 'block';
     }
+
+    window.addEventListener('load', updateLoadingMessage);
 
     window.addEventListener('keydown', playMusic);
     window.addEventListener('click', playMusic);
@@ -198,11 +211,12 @@
         e.preventDefault();
       }
     });
+
   </script>
   <script>
 
     const topSection = document.querySelector('.main-container');
-    const navBar = document.querySelector('.navbar-ul');
+    const navBar = document.querySelector('.navbar-desktop');
 
     document.addEventListener('mousemove', function (e) {
       const line = document.createElement('div');
@@ -225,17 +239,18 @@
 
       setTimeout(() => {
         line.remove();
-      }, 1100); 
+      }, 1100);
     });
   </script>
 
   <script>
-    function toggleMenu() {
-      var menu = document.querySelector('.mobile-menu');
-      if (menu.style.display === "block") {
-        menu.style.display = "none";
+    function toggleMobileMenu() {
+      var mobileMenu = document.querySelector('.navbar-mobile');
+
+      if (mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
       } else {
-        menu.style.display = "block";
+        mobileMenu.classList.add('active');
       }
     }
   </script>

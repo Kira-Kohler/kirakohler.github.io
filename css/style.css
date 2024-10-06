@@ -4,7 +4,9 @@ html {
     margin: 0;
     padding: 0;
 }
-.navbar-ul {
+
+.navbar-desktop {
+    display: none; 
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -16,12 +18,16 @@ html {
     z-index: 1000;
 }
 
-.navbar-ul li {
+.show-navbar .navbar-desktop {
+    display: block;
+}
+
+.navbar-desktop li {
     display: inline-block;
     padding: 15px 20px;
 }
 
-.navbar-ul li a {
+.navbar-desktop li a {
     color: rgb(255, 255, 255);
     text-transform: uppercase;
     text-decoration: none;
@@ -31,7 +37,7 @@ html {
     position: relative;
 }
 
-.navbar-ul li a::after {
+.navbar-desktop li a::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -43,24 +49,29 @@ html {
     transition: width 0.3s ease-in-out;
 }
 
-.navbar-ul li a:hover::after {
+.navbar-desktop li a:hover::after {
     width: 100%;
 }
 .mobile-menu-icon {
-    display: none;
+    display: none; 
     font-size: 30px;
     color: #fff;
     cursor: pointer;
     padding: 15px;
     text-align: center;
-    background-color: #111;
+    background-color: #333;
+    border-radius: 5px;
     position: fixed;
     top: 0;
     right: 0;
     z-index: 1001;
 }
-.mobile-menu {
-    display: none;
+
+.mobile-menu-icon:hover {
+    background-color: #444;
+}
+.navbar-mobile {
+    display: none; 
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -70,13 +81,24 @@ html {
     top: 50px;
     width: 100%;
     z-index: 1000;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    border-radius: 0 0 10px 10px;
 }
 
-.mobile-menu li {
+.navbar-mobile.active {
+    max-height: 300px;
+    opacity: 1;
+}
+
+.navbar-mobile li {
     padding: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.mobile-menu li a {
+.navbar-mobile li a {
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
@@ -84,25 +106,26 @@ html {
     display: block;
     padding: 15px 20px;
     background-color: #111;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.mobile-menu li a:hover {
-    background-color: #333;
+.navbar-mobile li a:hover {
+    background-color: #1a73e8;
+    transform: scale(1.05);
+    color: #fff;
 }
 
-@media only screen and (max-width: 768px) {
-    .navbar-ul {
-        display: none;
-    }
-    .mobile-menu-icon {
-        display: block;
-    }
+.navbar-mobile li a:active {
+    background-color: #0d47a1;
 }
+
 .center {
     text-align: center;
 }
 
-.center > div, .center > table {
+.center > div,
+.center > table {
     margin-left: auto;
     margin-right: auto;
 }
@@ -112,7 +135,7 @@ html {
     font-family: 'Platypi', sans-serif;
     padding: 20px;
     margin-top: 30px;
-    text-align: center;
+    text-align: center;  
 }
 
 .aboutme-container h2 {
@@ -144,73 +167,73 @@ html {
 .aboutme-container td:nth-child(2) {
     width: 60%;
 }
+
 @media only screen and (max-width: 768px) {
-    ul {
-        width: 100%;
+
+    body,
+    html {
+        font-size: 12px;
+        overflow-x: hidden;
     }
 
-    .navbar-ul {
+    h2,
+    p {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .main-container {
         padding: 10px;
     }
 
-    .navbar-ul li {
-        padding: 10px 5px;
+    .aboutme-container {
+        padding: 10px;
+        margin-top: 20px;       
     }
 
     .aboutme-container table {
+        font-size: 10px;
         width: 100%;
-        font-size: 14px;
     }
 
-    .aboutme-container h2 {
-        left: 0;
-        text-align: center;
-    }
-
-    body, html {
-        font-size: 12px;
-    }
-
-    img {
-        max-width: 100%;
+    .center img {
+        max-width: 80%;
         height: auto;
     }
-
-    .navbar-ul li a {
-        font-size: 12px;
-        padding: 8px;
+    .navbar-desktop {
+        display: none;
     }
-
-    .navbar-ul {
-        text-align: center;
+    .mobile-menu-icon {
+        display: block;
     }
-
-    body {
-        overflow: auto;
+    .navbar-mobile.active {
+        display: block;
     }
 }
-
 .trail {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(45deg, #d9b89c, #d38a53, #926f5b);
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 1;
-  filter: blur(3px);
-  animation: fade-out 1.1s forwards; 
-  z-index: 1100;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #d9b89c, #d38a53, #926f5b);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 1;
+    filter: blur(3px);
+    animation: fade-out 1.1s forwards;
+    z-index: 1100;
+}
+
+.hidden {
+    display: none;
 }
 
 @keyframes fade-out {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(2); 
-  }
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
 }
-
